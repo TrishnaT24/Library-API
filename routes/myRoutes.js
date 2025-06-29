@@ -36,7 +36,7 @@ router.get('/books',getAllBooks);
 router.post('/add',addBook);
 
 //retrive book based on title
-router.get('/findbook',findBookByAuthor);
+router.get('/findbook/:name',findBookByAuthor);
 
 //find by title
 router.post('/findbytitle',findBookByTitle);

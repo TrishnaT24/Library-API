@@ -15,7 +15,7 @@ await connecter();
 app.use('/api',allroutes);
 PORT=3000;
 app.listen(PORT, ()=>console.log(`Server running on Port ${PORT}`));
-}
+};
 
 
 start();

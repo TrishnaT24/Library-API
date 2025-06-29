@@ -44,7 +44,6 @@ const findBookByTitle=async(req,res)=>{
         const {title}=req.body;
         const titlebook=await Book.findOne({title:title});
         res.status(200).json(titlebook);
-
     }
     catch(err)
     {
