@@ -1,15 +1,19 @@
 const express=require('express');
 const router=express.Router();
-const Book=require('../models/Book');
-const User=require('../models/User');
-const {
-  getAllBooks,
-  addBook,
-  findBookByAuthor,
-  findBookByTitle,
-} = require('../controller/bookController');
+// const Book=require('../models/Book');
+// const User=require('../models/User');
+// const {
+//   getAllBooks,
+//   addBook,
+//   findBookByAuthor,
+//   findBookByTitle,
+// } = require('../controller/bookController');
 
-const {findbyUsername,signup,login}=require('../controller/userController');
+// const {findbyUsername,signup,login}=require('../controller/userController');
+
+
+const {createBook}=require("../models/Bookdb");
+const {getAllBooks,findbyId,addBook}=require('../controller/bookDB');
 
 const products=[
     // 'apple','mango'
@@ -30,23 +34,28 @@ router.get('/welcome',(req,res)=>{
 
 
 //get all books
-router.get('/books',getAllBooks);
+// router.get('/books',getAllBooks);
 
-//can add a book to the bookstore
-router.post('/add',addBook);
+// //can add a book to the bookstore
+// router.post('/add',addBook);
 
-//retrive book based on title
-router.get('/findbook/:name',findBookByAuthor);
+// //retrive book based on title
+// router.get('/findbook/:name',findBookByAuthor);
 
-//find by title
-router.post('/findbytitle',findBookByTitle);
+// //find by title
+// router.post('/findbytitle',findBookByTitle);
 
 
-//find user by username
-router.post('/finduser',findbyUsername);
+// //find user by username
+// router.post('/finduser',findbyUsername);
 
-router.post('/signup',signup);
+// router.post('/signup',signup);
 
-router.post('/login',login);
+// router.post('/login',login);
+
+
+router.get('/getallBooks',getAllBooks);
+router.post('/byid',findbyId);
+router.post('/addbook',addBook);
 
 module.exports=router;
