@@ -8,7 +8,6 @@ const router=express.Router();
 //   findBookByAuthor,
 //   findBookByTitle,
 // } = require('../controller/bookController');
-
 // const {findbyUsername,signup,login}=require('../controller/userController');
 
 
@@ -32,7 +31,7 @@ router.get('/welcome',(req,res)=>{
 
 
 
-
+//mongo routes
 //get all books
 // router.get('/books',getAllBooks);
 
@@ -53,7 +52,7 @@ router.get('/welcome',(req,res)=>{
 
 // router.post('/login',login);
 
-
+//sql routes
 router.get('/getallBooks',getAllBooks);
 router.post('/byid',findbyId);
 router.post('/addbook',addBook);
