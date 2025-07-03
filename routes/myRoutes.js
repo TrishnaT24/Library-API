@@ -13,8 +13,9 @@ const router=express.Router();
 
 const {createBook}=require("../models/Bookdb");
 const {getAllBooks,findbyId,addBook}=require('../controller/bookDB');
-const {register}=require("../controller/userDB");
-
+const {register,login}=require("../controller/userDB");
+const {authenticateJWT,authorizeAdmin}=require("../middleware/authMiddleware");
+const {addShort,showFeed} = require("../controller/shortDB");
 // const products=[
 //     // 'apple','mango'
 //     { id: 1, name: "Laptop", price: 1000 }, 
@@ -62,6 +63,7 @@ router.post('/addbook',addBook);
 router.post('/register',register);
 
 router.post('/login',login);
-
-
+router.post('/shorts/create',authenticateJWT, authorizeAdmin,addShort);
+router.get('/shorts/feed',authenticateJWT,showFeed);
+// authorizeAdmin
 module.exports=router;
