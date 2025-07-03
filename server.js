@@ -5,11 +5,15 @@ const allroutes=require('./routes/myRoutes');
 const db=require('./config/sqldb');
 const app=express();
 // const {createBook}=require("./models/Bookdb");
+const {createUser}=require("./models/Userdb");
+const {insertUsers}=require("./controller/userDB");
 // const {insertBooks,truncateBooks}=require('./controller/bookDB');
 app.use(cors());
 
 
 app.use(express.json());
+createUser();
+insertUsers();
 // createBook();
 // insertBooks();
 // truncateBooks();

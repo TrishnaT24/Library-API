@@ -6,7 +6,7 @@ const { response } = require("express");
     
     
 const insertBooks=()=>{
-const insertquery=`INSERT INTO BOOKS (title,copies,author) VALUES?`;
+const insertquery=`INSERT INTO BOOKS (title,copies,author) VALUES ?`;
 
 const vals=books.map(book=>[book.title,book.copies,book.author]);
 
@@ -51,7 +51,7 @@ const addBook=(req,res)=>{
     const {title,copies,author}=req.body;
 
     const addquery=`INSERT INTO BOOKS (title,copies,author) VALUES (?,?,?)`;
-
+    
     db.query(addquery,[title,copies,author],(err,response)=>{
         if(err) throw err;
         res.status(200).json(response);

@@ -13,16 +13,17 @@ const router=express.Router();
 
 const {createBook}=require("../models/Bookdb");
 const {getAllBooks,findbyId,addBook}=require('../controller/bookDB');
+const {register}=require("../controller/userDB");
 
-const products=[
-    // 'apple','mango'
-    { id: 1, name: "Laptop", price: 1000 }, 
-    { id: 2, name: "Phone", price: 500 }
-]
-//get the products list.
-router.get('/products',(req,res)=>{
-    res.send(products);
-});
+// const products=[
+//     // 'apple','mango'
+//     { id: 1, name: "Laptop", price: 1000 }, 
+//     { id: 2, name: "Phone", price: 500 }
+// ]
+// //get the products list.
+// router.get('/products',(req,res)=>{
+//     res.send(products);
+// });
 
 //get the welcome message
 router.get('/welcome',(req,res)=>{
@@ -56,5 +57,11 @@ router.get('/welcome',(req,res)=>{
 router.get('/getallBooks',getAllBooks);
 router.post('/byid',findbyId);
 router.post('/addbook',addBook);
+
+//sql routes for users 
+router.post('/register',register);
+
+router.post('/login',login);
+
 
 module.exports=router;
