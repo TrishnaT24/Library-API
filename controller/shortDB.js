@@ -27,4 +27,14 @@ const showFeed=(req,res)=>{
     })
 }
 
-module.exports={addShort, showFeed};
+const delshort=(req,res)=>{
+    const delquery=`DELETE FROM SHORTS WHERE ID=?`;
+    const tempid=req.params.id;
+    db.query(delquery,[tempid],(err,response)=>{
+        if(err) throw err;
+        console.log(response);
+        return res.status(200).json("hello");
+    })
+}
+
+module.exports={addShort, showFeed, delshort};

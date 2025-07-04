@@ -15,7 +15,7 @@ const {createBook}=require("../models/Bookdb");
 const {getAllBooks,findbyId,addBook}=require('../controller/bookDB');
 const {register,login}=require("../controller/userDB");
 const {authenticateJWT,authorizeAdmin}=require("../middleware/authMiddleware");
-const {addShort,showFeed} = require("../controller/shortDB");
+const {addShort,showFeed,delshort} = require("../controller/shortDB");
 // const products=[
 //     // 'apple','mango'
 //     { id: 1, name: "Laptop", price: 1000 }, 
@@ -49,6 +49,7 @@ router.get('/welcome',(req,res)=>{
 
 // //find user by username
 // router.post('/finduser',findbyUsername);
+// router.post('/api/shorts/filter/:category',findbyUsername);
 
 // router.post('/signup',signup);
 
@@ -65,5 +66,7 @@ router.post('/register',register);
 router.post('/login',login);
 router.post('/shorts/create',authenticateJWT, authorizeAdmin,addShort);
 router.get('/shorts/feed',authenticateJWT,showFeed);
+router.get('/shorts/:id',delshort);
+
 // authorizeAdmin
 module.exports=router;

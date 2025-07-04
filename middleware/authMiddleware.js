@@ -12,14 +12,13 @@ const authenticateJWT=(req,res,next)=>{
         next();
     })
     
-    // next();
 }
 
 const authorizeAdmin=(req,res,next)=>{
     const api_key=req.headers['admin_api_key'];
     // console.log(req.headers);
     if(api_key!=process.env.ADMIN_API_KEY){
-        return res.status(401).json("you don't correct api key");
+        return res.status(401).json("you don't have correct api key");
     }
     // return res.status(200).json("you have api key");
     next();
